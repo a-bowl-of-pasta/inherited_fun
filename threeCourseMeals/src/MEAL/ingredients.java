@@ -15,5 +15,15 @@ public class ingredients {
        }
     }
 
+    void setFresh(){this.isFresh = true;}
+    void setGarnish(){this.isGarnish = true;}
+    void setMeasureUnits(){this.measureUnits = "grams";}
+
+    boolean getFresh(){return isFresh;}
+    boolean getGarnish(){return isGarnish;}
+    String getMeasureUnits(){return measureUnits;}
+
+
+
 
 }
