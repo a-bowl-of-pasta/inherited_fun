@@ -4,55 +4,29 @@ public class meal
 {
     boolean isCooked; // false- sushi ; true- chicken
     String mealDescription;
-    boolean isMainDish;
-    boolean isSideDish;
+    boolean mainDish;
+    boolean sideDish;
     String cuisineType; //mexican, american, italian, etc
-
-    void setMealDescription(){this.mealDescription = mealDescription; }
-    void isCooked(String mealName) {
-       if (mealName == "sushi")
-       {
-           this.isCooked = true;
-       }
-       else if (mealName == "chicken")
-       {
-           this.isCooked = false;
-       }
+    // ==== constructor ====
+    public meal()
+    {
+        
     }
 
-    void isMainDish(String mealName) {
-        if (mealName == "sushi" || mealName == "chicken")
-        {
-            this.isMainDish = true;
-        }
-        else {
-            this.isMainDish = false;
-        }
-    }
 
-    void isSideDish(String mealName) {
-        if(mealName == "sushi" || mealName == "chicken") {
-            this.isSideDish = false;
-        }
-        else {
-            this.isSideDish = true;
-        }
-            ;
-    }
+    // ==== methods =====
+    public void setMealDescription(String mealDescription){this.mealDescription = mealDescription; }
+    public void isCooked() {isCooked = true;}
+    public void isMainDish() {mainDish = true; sideDish = false; }
+    public void isSideDish(){ sideDish = true; mainDish = false; }
 
-    void setCuisineType(String mealName) {
-        if(mealName == "Sushi"){
-            this.cuisineType = "Asian";
-        }
-        else if (mealName == "chicken")
-            this.cuisineType = "Chicken";
-    }
+    public void setCuisineType(String type){ cuisineType = type;}
 
-    String getMealDescription() {return mealDescription;}
-    boolean getIsCooked(){return isCooked;}
-    boolean getIsMainDish(){return isMainDish;}
-    boolean getIsSideDish(){return isSideDish;}
-    String getCuisineType(){return cuisineType;}
+    public String getMealDescription() {return mealDescription;}
+    public boolean getIsCooked(){return isCooked;}
+    public boolean getIsMainDish(){return isMainDish;}
+    public boolean getIsSideDish(){return isSideDish;}
+    public String getCuisineType(){return cuisineType;}
 
 
 

@@ -1,6 +1,6 @@
 package MEAL;
 
-public class drinks {
+public class drinks extends ingredients{
     boolean isCarbonated;
     boolean isAlcoholic;
     boolean isMixed;
@@ -9,51 +9,91 @@ public class drinks {
     String bestPairedWith;
     String flavorProfile; // how the drink tastes
 
+    // ===== constructors =====
+
+    public drinks()
+    {
+        isCarbonated = false;
+        isAlcoholic = false;
+        isMixed = false;
+        isHot = false;
+        descriptionOfDrink = "";
+        bestPairedWith = "";
+        flavorProfile = "";
+    }
+    public drinks(boolean isHot, boolean hasAlcohol,boolean isMixed)
+    {
+        isCarbonated = false;
+        isAlcoholic = hasAlcohol;
+        this.isMixed = isMixed;
+        this.isHot = isHot;
+        descriptionOfDrink = "";
+        bestPairedWith = "";
+        flavorProfile = "";
+    }
+
+
+    // ==== methods ====
     //Setters
     //Every drink is alcoholic- because why not?
-    void setAlcoholism() {this.isAlcoholic = true;}
-    void setCarbonated() {this.isCarbonated = isCarbonated;}
-    void setMixed(boolean isAlcoholic){
-        if (isAlcoholic)
-        {
-            this.isMixed = true;
-        }
-        else {
-            this.isMixed = false;
-        }
-    }
-    void setHot(int temp) {
-        if (temp > 160)
-        {
-            this.isHot = true;
-        }
-        else
-        {
-            this.isHot = false;
-        }
-    }
-    void setDescriptionOfDrink() { this.descriptionOfDrink = descriptionOfDrink; }
-    void setBestPairedWith() { this.bestPairedWith = bestPairedWith; }
-    void setFlavorProfile() { this.flavorProfile = flavorProfile; }
+
+    public void setAlcoholism() {this.isAlcoholic = true;}
+    public void setCarbonated(boolean isCarbonated) {this.isCarbonated = isCarbonated;}
+    public void setMixed(boolean isMixed) {this.isMixed = isMixed;}
+    public void setHot(int temp) { if (temp >= 160) {this.isHot = true;} }
+
+    public void setDescriptionOfDrink(String descriptionOfDrink) { this.descriptionOfDrink = descriptionOfDrink; }
+    public void setBestPairedWith(String bestPairedWith) { this.bestPairedWith = bestPairedWith; }
+    public void setFlavorProfile(String flavorProfile) { this.flavorProfile = flavorProfile; }
 
     // Getters
-    boolean getAlcoholism() {return isAlcoholic;}
-    boolean getCarbonated() {return isCarbonated;}
-    boolean getMixed() {return isMixed;}
-    boolean getHot() {return isHot;}
-    String getDescription() {return descriptionOfDrink;}
-    String getBestPairedWith() {return bestPairedWith;}
-    String getFlavorProfile() {return flavorProfile;}
+    public boolean getAlcoholism() {return isAlcoholic;}
+    public boolean getCarbonated() {return isCarbonated;}
+    public boolean getMixed() {return isMixed;}
+    public boolean getHot() {return isHot;}
+    public String getDescription() {return descriptionOfDrink;}
+    public String getBestPairedWith() {return bestPairedWith;}
+    public String getFlavorProfile() {return flavorProfile;}
     // to string method
-    
 
 
+    //  ------ looks messy, I know
+    private String alcoholicComp(String drinkToString) {
 
+        if (isAlcoholic) {
+            if (isMixed) {
+                drinkToString += "- alcohol cocktail\n";
+            } else {
+                drinkToString += "- contains alcohol\n";
+            }
+        } else {
+            if (isMixed) {
+                drinkToString += "- non Alcoholic mocktail\n";
+            } else if (isCarbonated) {
+                drinkToString += "- soft drik\n";
+            } else {
+                drinkToString += "- non alchoholic\n";
+            }
+        }
+        if(isHot)
+        {
+            drinkToString += "- hot\n";
+        }else
+        {
+            drinkToString += "- cold\n";
+        }
 
+        return drinkToString;
+    }
+    @Override
+    public String toString() {
 
-
-
-
-
-
+        String drinkToString = getNameOf() + "\n";
+        drinkToString = alcoholicComp(drinkToString);
+        if(garnish)
+        {
+            drinkToString+= "- has garnish\n";
+        }
+        return drinkToString;
+    }
 }
