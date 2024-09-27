@@ -10,6 +10,18 @@ public class utensils {
 
 
     static void setNumOfUtensils(int num) {utensilPerPerson = num; }
+    void setMaterial(){}
+    void setTypeOfUtensil(){}
+    void setHoneySpoon(){}
+    void setStraw(){}
+    void setSilliness(){}
+    String getUtensil(){return typeOfUtensil;}
+    String getMaterial(){return utensilMaterial;}
+    static int getUtensilNums(){return utensilPerPerson;}
+    boolean getHoneySpoon(){return honeySpoon;}
+    boolean getIsStraw(){return isStraw;}
+    boolean getIsSilly(){return isSilly;}
+
 
 
 

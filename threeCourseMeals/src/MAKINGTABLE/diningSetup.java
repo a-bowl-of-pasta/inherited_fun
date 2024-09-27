@@ -3,18 +3,20 @@ package MAKINGTABLE;
 public class diningSetup {
     static String tableCenterPiece;
     static int seatNums;
-    String classiiness;
+    String classiness;
     boolean hasMainMeal;
 
 
 
 
-    void setClassiness(){}
-    static void setSeatNum(){}
-    void setCenterPiece(){}
-    String getClassiness(){return classiiness;}
+    void setClassiness(String claaaasy){ classiness = claaaasy;}
+    static void setSeatNum(int seats){seatNums = seats;}
+    void setCenterPiece(String centerPiece){ tableCenterPiece = centerPiece;}
+    void hasMainMeal(boolean mainMeal){hasMainMeal = mainMeal;}
+    String getClassiness(){return classiness;}
     static int getSeatNum(){return seatNums;}
     String getCenterPiece(){return tableCenterPiece;}
+    boolean getHasMainMeal(){return hasMainMeal;}
 
 
 }
