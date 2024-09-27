@@ -36,7 +36,7 @@ public class drinks {
     void setBestPairedWith() { this.bestPairedWith = bestPairedWith; }
     void setFlavorProfile() { this.flavorProfile = flavorProfile; }
 
-    //Getters
+    // Getters
     boolean getAlcoholism() {return isAlcoholic;}
     boolean getCarbonated() {return isCarbonated;}
     boolean getMixed() {return isMixed;}
@@ -44,7 +44,8 @@ public class drinks {
     String getDescription() {return descriptionOfDrink;}
     String getBestPairedWith() {return bestPairedWith;}
     String getFlavorProfile() {return flavorProfile;}
-
+    // to string method
+    
 
 
 
