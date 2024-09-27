@@ -13,6 +13,9 @@ public class drinks extends ingredients{
 
     public drinks()
     {
+        isFresh = true;
+        nameOf = "";
+        garnish = false; 
         isCarbonated = false;
         isAlcoholic = false;
         isMixed = false;

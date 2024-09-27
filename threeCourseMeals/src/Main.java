@@ -21,7 +21,7 @@ public class Main {
 
         //Sets meal
         meal.setMealDescription(mealName);
-        meal.isCooked(mealName);
+        meal.isCooked();
         meal.setCuisineType(mealName);
 
         System.out.println("Second: What type of alcoholic drink would you like? (No regular drinks in this program)");
@@ -32,13 +32,13 @@ public class Main {
 
         //Sets drink
         drank.setDescriptionOfDrink(drankName);
-        drank.setMixed(drankName);
+        drank.setMixed(true);
         drank.setAlcoholism();
 
         //Sets ingredients
         ingred.setNameOf(mealName);
-        ingred.setFresh();
-        ingred.setGarnish();
+        ingred.isFresh();
+        ingred.isGarnish();
 
         //Prints out everything
         System.out.println("Here is information about your meal!");
@@ -55,7 +55,7 @@ public class Main {
             System.out.println("This is not a mixed drink!");
         }
 
-        System.out.println("Ingredients for meal: " + ingred.getIngredientName());
+        System.out.println("Ingredients for meal: " + ingred.getNameOf());
 
         if (ingred.getFresh() && ingred.getGarnish()) {
             System.out.println("This dish is fresh and can be set with garnish");
