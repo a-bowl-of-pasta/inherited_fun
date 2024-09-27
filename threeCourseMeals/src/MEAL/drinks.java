@@ -1,49 +1,45 @@
 package MEAL;
 
+import java.util.Objects;
+
 public class drinks {
-    boolean isCarbonated;
     boolean isAlcoholic;
     boolean isMixed;
-    boolean isHot;
     String descriptionOfDrink; // what the drink is
-    String bestPairedWith;
-    String flavorProfile; // how the drink tastes
+
 
     //Setters
+
     //Every drink is alcoholic- because why not?
-    void setAlcoholism() {this.isAlcoholic = true;}
-    void setCarbonated() {this.isCarbonated = isCarbonated;}
-    void setMixed(boolean isAlcoholic){
-        if (isAlcoholic)
+    public void setAlcoholism() {this.isAlcoholic = true;}
+
+    public void setMixed(String drankname){
+        if (Objects.equals(drankname, "bloody mary"))
         {
             this.isMixed = true;
         }
-        else {
+        else if (Objects.equals(drankname, "beer") || Objects.equals(drankname, "wine")){
             this.isMixed = false;
         }
     }
-    void setHot(int temp) {
-        if (temp > 160)
-        {
-            this.isHot = true;
+
+    public void setDescriptionOfDrink(String drankname) {
+        if (Objects.equals(drankname, "bloody mary")){
+            this.descriptionOfDrink = "a cocktail that typically contains vodka, tomato juice, and other flavorings and spices.";
         }
-        else
-        {
-            this.isHot = false;
+        else if (Objects.equals(drankname, "beer")){
+            this.descriptionOfDrink = "an alcoholic drink made from malt and flavored with hops.";
         }
+        else if (Objects.equals(drankname, "wine")){
+            this.descriptionOfDrink = "an alcoholic beverage made from fermented fruit, typically grapes.";
+        }
+
     }
-    void setDescriptionOfDrink() { this.descriptionOfDrink = descriptionOfDrink; }
-    void setBestPairedWith() { this.bestPairedWith = bestPairedWith; }
-    void setFlavorProfile() { this.flavorProfile = flavorProfile; }
 
     //Getters
-    boolean getAlcoholism() {return isAlcoholic;}
-    boolean getCarbonated() {return isCarbonated;}
-    boolean getMixed() {return isMixed;}
-    boolean getHot() {return isHot;}
-    String getDescription() {return descriptionOfDrink;}
-    String getBestPairedWith() {return bestPairedWith;}
-    String getFlavorProfile() {return flavorProfile;}
+    public boolean getAlcoholism() {return isAlcoholic;}
+    public boolean getMixed() {return isMixed;}
+    public String getDescription() {return descriptionOfDrink;}
 
 
 

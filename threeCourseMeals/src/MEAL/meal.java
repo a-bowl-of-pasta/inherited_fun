@@ -1,58 +1,48 @@
 package MEAL;
 
+import java.util.Objects;
+
 public class meal
 {
-    boolean isCooked; // false- sushi ; true- chicken
+    boolean isCooked; //
     String mealDescription;
-    boolean isMainDish;
-    boolean isSideDish;
     String cuisineType; //mexican, american, italian, etc
 
-    void setMealDescription(){this.mealDescription = mealDescription; }
-    void isCooked(String mealName) {
-       if (mealName == "sushi")
-       {
-           this.isCooked = true;
-       }
-       else if (mealName == "chicken")
+    public void setMealDescription(String mealName){
+        if (Objects.equals(mealName, "sushi"))
+        {
+            this.mealDescription = "a Japanese dish that's made from" +
+                    " vinegared rice and a variety of other ingredients," +
+                    " such as seafood, vegetables, or egg.";
+        }
+        else if (Objects.equals(mealName, "chicken"))
+        {
+            this.mealDescription = "It's chicken. Kind of a bland choice to make?";
+        }
+    }
+    public void isCooked(String mealName) {
+       if (Objects.equals(mealName, "sushi"))
        {
            this.isCooked = false;
        }
+       else if (Objects.equals(mealName, "chicken"))
+       {
+           this.isCooked = true;
+       }
     }
 
-    void isMainDish(String mealName) {
-        if (mealName == "sushi" || mealName == "chicken")
-        {
-            this.isMainDish = true;
-        }
-        else {
-            this.isMainDish = false;
-        }
-    }
 
-    void isSideDish(String mealName) {
-        if(mealName == "sushi" || mealName == "chicken") {
-            this.isSideDish = false;
-        }
-        else {
-            this.isSideDish = true;
-        }
-            ;
-    }
-
-    void setCuisineType(String mealName) {
-        if(mealName == "Sushi"){
+    public void setCuisineType(String mealName) {
+        if(Objects.equals(mealName, "sushi")){
             this.cuisineType = "Asian";
         }
-        else if (mealName == "chicken")
+        else if (Objects.equals(mealName, "chicken"))
             this.cuisineType = "Chicken";
     }
 
-    String getMealDescription() {return mealDescription;}
-    boolean getIsCooked(){return isCooked;}
-    boolean getIsMainDish(){return isMainDish;}
-    boolean getIsSideDish(){return isSideDish;}
-    String getCuisineType(){return cuisineType;}
+    public String getMealDescription() {return mealDescription;}
+    public boolean getIsCooked(){return isCooked;}
+    public String getCuisineType(){return cuisineType;}
 
 
 
