@@ -1,74 +1,85 @@
-import MEAL.drinks;
-import MEAL.ingredients;
-import MEAL.meal;
+import MEAL.*;
+import java.util.ArrayList;
 
 import java.util.Scanner;
 
 public class Main {
+    static ArrayList<meal> foodList;
+    static ArrayList<drinks> drinkList;
+    static ArrayList<ingredients> ingList;
+    // ==== methods for adding drink info =====
+    public static void addDrinkInfo()
+    {
+        drinkList = new ArrayList<drinks>();
+        drinks drink = new drinks("drink 1");
+        drinks.setNumOf(3);
+
+        drinkList.add(drink);
+        int numOfDrinks = drinks.getNumOf();
+
+        for(int i = 1; i < numOfDrinks; i++) {
+            drinks newDrink = new drinks("drink " + (i +1));
+            drinkList.add(newDrink);
+        }
+
+    }
+    // ==== methods for adding meal info =====
+    public static void addMealInfo()
+    {
+        foodList = new ArrayList<meal>();
+        meal yum = new meal("meal 1");
+        meal.setNumOf(2);
+
+        foodList.add(yum);
+        int numOfMeals = meal.getNumOf();
+
+        for(int i = 1; i < numOfMeals; i++) {
+            meal newMeal = new meal("meal " + (i+1));
+            foodList.add(newMeal);
+        }
+    }
+    // ==== methods for adding ingredient info =====
+    public static void addIngredientInfo()
+    {
+        ingList = new ArrayList<ingredients>();
+        ingredients ing = new ingredients("ingredient 1");
+        ingredients.setNumOf(2);
+
+        ingList.add(ing);
+        int numOfIng = ingredients.getNumOf();
+
+        for(int i = 1; i < numOfIng; i++) {
+            ingredients newIng = new ingredients("ingredient " + (i+1));
+            ingList.add(newIng);
+        }
+
+    }
+
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        meal meal = new meal();
-        drinks drank = new drinks();
-        ingredients ingred = new ingredients();
 
-        System.out.println("This is a mealPlanner program (Enter answers in all lowercase)");
-        System.out.println("Answer the questions to plan the meal");
+        System.out.println("this is a meal planning program");
+        System.out.println("enter the required information");
 
-        System.out.println("What type of meal would you like? (Type the food name below)");
-        System.out.println("1. Sushi");
-        System.out.println("2. Chicken");
-        String mealName = sc.nextLine();
+        addIngredientInfo();
+        addDrinkInfo();
+        addMealInfo();
 
-        //Sets meal
-        meal.setMealDescription(mealName);
-        meal.isCooked();
-        meal.setCuisineType(mealName);
+        System.out.println("the ingredient list is :: ");
 
-        System.out.println("Second: What type of alcoholic drink would you like? (No regular drinks in this program)");
-        System.out.println("1. Beer");
-        System.out.println("2. Wine");
-        System.out.println("3. Bloody Mary");
-        String drankName = sc.nextLine();
-
-        //Sets drink
-        drank.setDescriptionOfDrink(drankName);
-        drank.setMixed(true);
-        drank.setAlcoholism();
-
-        //Sets ingredients
-        ingred.setNameOf(mealName);
-        ingred.isFresh();
-        ingred.isGarnish();
-
-        //Prints out everything
-        System.out.println("Here is information about your meal!");
-        System.out.println("Food name: " + mealName);
-        System.out.println("Food description: " + meal.getMealDescription());
-
-        if (drank.getAlcoholism()) {
-            System.out.println("Drink name: " + drankName + "-  " + drank.getDescription());
+        System.out.println("=================");
+        for(ingredients in : ingList)
+        {
+            System.out.println(in.toString() );
         }
-
-        if (drank.getMixed()) {
-            System.out.println("This is a mixed drink!");
-        } else {
-            System.out.println("This is not a mixed drink!");
+        System.out.println("=================");
+        for(drinks dl : drinkList)
+        {
+            System.out.println(dl.toString() );
         }
-
-        System.out.println("Ingredients for meal: " + ingred.getNameOf());
-
-        if (ingred.getFresh() && ingred.getGarnish()) {
-            System.out.println("This dish is fresh and can be set with garnish");
+        System.out.println("=================");
+        for(meal ml : foodList)
+        {
+            System.out.println(ml.toString() );
         }
-
-        if (meal.getIsCooked()) {
-            System.out.println("This is a cooked meal!");
-        } else {
-            System.out.println("This is not a cooked meal!");
-        }
-
-        System.out.println("Cuisine Type: " + meal.getCuisineType());
-
-
     }
 }

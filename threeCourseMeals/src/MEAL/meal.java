@@ -7,12 +7,12 @@ public class meal extends ingredients
     boolean mainDish;
     boolean sideDish;
     String cuisineType; //mexican, american, italian, etc
+    static int numOf;
     // ==== constructor ====
-    public meal()
+    public meal(int totalNumOfMeals)
     {
-        isFresh = true;
-        nameOf = "";
-        garnish = false;
+        super("");
+        setNumOf(totalNumOfMeals);
         isCooked = false;
         mainDish = false;
         sideDish = false;
@@ -36,14 +36,14 @@ public class meal extends ingredients
         cuisineType = foodType;
         mealDescription = "";
     }
-    public meal(String foodDescription)
+    public meal(String mealName)
     {
-
+        super(mealName);
         isCooked = false;
         mainDish = false;
         sideDish = false;
         cuisineType = "unspecified";
-        mealDescription = foodDescription;
+        mealDescription = "";
     }
 
     // ==== methods =====
@@ -51,6 +51,7 @@ public class meal extends ingredients
     public void isCooked() {isCooked = true;}
     public void isMainDish() {mainDish = true; sideDish = false; }
     public void isSideDish(){ sideDish = true; mainDish = false; }
+    public static void setNumOf(int numOf){meal.numOf = numOf;}
 
     public void setCuisineType(String type){ cuisineType = type;}
 
@@ -59,7 +60,7 @@ public class meal extends ingredients
     public boolean getIsMainDish(){return mainDish;}
     public boolean getIsSideDish(){return sideDish;}
     public String getCuisineType(){return cuisineType;}
-
+    public static int getNumOf(){return meal.numOf;}
     // ==== to String Method =====
 
 

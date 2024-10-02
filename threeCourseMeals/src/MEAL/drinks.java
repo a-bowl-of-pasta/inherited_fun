@@ -5,17 +5,18 @@ public class drinks extends ingredients{
     boolean isAlcoholic;
     boolean isMixed;
     boolean isHot;
+    static int numOf;
     String descriptionOfDrink; // what the drink is
     String bestPairedWith;
     String flavorProfile; // how the drink tastes
 
     // ===== constructors =====
 
-    public drinks()
+    public drinks(int totalNumOfDrinks)
     {
-        isFresh = true;
-        nameOf = "";
-        garnish = false; 
+
+        super("");
+        setNumOf(totalNumOfDrinks);
         isCarbonated = false;
         isAlcoholic = false;
         isMixed = false;
@@ -30,6 +31,17 @@ public class drinks extends ingredients{
         isAlcoholic = hasAlcohol;
         this.isMixed = isMixed;
         this.isHot = isHot;
+        descriptionOfDrink = "";
+        bestPairedWith = "";
+        flavorProfile = "";
+    }
+    public drinks(String drinkName)
+    {
+        super(drinkName);
+        isCarbonated = false;
+        isAlcoholic = false;
+        isMixed = false;
+        isHot = false;
         descriptionOfDrink = "";
         bestPairedWith = "";
         flavorProfile = "";
@@ -49,6 +61,8 @@ public class drinks extends ingredients{
     public void setBestPairedWith(String bestPairedWith) { this.bestPairedWith = bestPairedWith; }
     public void setFlavorProfile(String flavorProfile) { this.flavorProfile = flavorProfile; }
 
+    public static void setNumOf(int numOf) {drinks.numOf = numOf;}
+
     // Getters
     public boolean getAlcoholism() {return isAlcoholic;}
     public boolean getCarbonated() {return isCarbonated;}
@@ -57,6 +71,7 @@ public class drinks extends ingredients{
     public String getDescription() {return descriptionOfDrink;}
     public String getBestPairedWith() {return bestPairedWith;}
     public String getFlavorProfile() {return flavorProfile;}
+    public static int getNumOf(){return drinks.numOf;}
     // to string method
 
 
